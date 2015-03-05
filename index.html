@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Ryan Hirst</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+		<header>
+			<h1>Ryan Hirst</h1>
+			<h2>Student, East Lansing, MI</h2>
+		</header>
+		
+		<div id="map-location" data-0="background-image:url(img/BWmap.jpg);opacity:.5;" 
+			data-250="background-image:url(img/Cmap.jpg);opacity:1;" data-550="opacity:.5;">
+
+		
+		
+		</div>
+		<nav data-0="position:absolute;top:700px;" data-700="position:absolute;top:700px;"
+					data-1500="position:absolute; top:1550px;">
+			<ul >
+				<li><a href="#about">About</a></li>
+				<li><a href="#portfolio">Portfolio</a></li>
+				<li><a href="#images">Images</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+				
+		
+		</nav>
+		<article>
+			<section id="about">
+				<h3>About Ryan</h3>
+				<p>I am Ryan Hirst, a student, gamer, soccer enthusiast, and amateur cook from Kalamazoo, Michigan.  I'm currently studying and living in East Lansing, MI, where I'm 
+				attending Michigan State University and majoring in Media & Information along with a minor in Computer Science.
+					School usually keeps me pretty busy, but the free time I get is usually filled with fumbling around with my guitar or whatever book I'm currently engrossed in (right now it's The Fall by Albert Camus).
+				<br><br>
+				Before making my way to the great city of East Lansing, I attended high school in the small town of Mattawan, Michigan, at the aptly named Mattawan High School.
+				During my time there, I played soccer for the varsity team and was an avid member of the Mattawan Ski Club.  
+				</p>			
+
+			</section>
+			<section id="portfolio">
+				<h3>Portfolio</h3>
+				<ul class="gallery" >
+					<li><img alt="portfolio" src="img/Kalamazoo Wolves.png"</li>
+					<li><img alt="portfolio" src="img/Kalamazoo Wolves.png"</li>
+					<li><img alt="portfolio" src="img/Kalamazoo Wolves.png"</li>
+					<li><img alt="portfolio" src="img/Kalamazoo Wolves.png"</li>
+					<li><img alt="portfolio" src="img/Kalamazoo Wolves.png"</li>
+					<li><img alt="portfolio" src="img/Kalamazoo Wolves.png"</li>
+					<li><img alt="portfolio" src="img/Kalamazoo Wolves.png"</li>
+					<li><img alt="portfolio" src="img/Kalamazoo Wolves.png"</li>
+				</ul>
+			</section>
+			<section id="images">
+				<h3>Images</h3>
+				<ul class="gallery" >
+					<li><a href="img/MeinUniverse.jpg"><img alt="portfolio" src="img/MeinUniverseThumb.jpg"></a></li>
+					<li><a href="img/LOTRfellowship.jpg"><img alt="portfolio" src="img/LOTRfellowshipThumb.jpg"></a></li>
+					<li><a href="img/MasterChief.jpg"><img alt="portfolio" src="img/MasterChiefThumb.jpg"></a></li>
+					</ul>
+			</section>
+			<section id="contact">
+				<h3>Contact</h3>
+				<p>Email: r.hirst18@gmail.com<br>
+					Twitter: <a href ="https://twitter.com/ryhirst">@ryhirst</a></p>
+			</section>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/vendor/skrollr.min.js"></script>
+		<script src="js/vendor/skrollr.menu.min.js"></script>
+		<script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+		
+		<script type="text/javascript">
+		if ($(window).width() > 600) {
+			
+			var s = skrollr.init();
+			
+			skrollr.menu.init(s, {
+			//skrollr will smoothly animate to the new position using `animateTo`.
+			animate: true,
+
+			//The easing function to use.
+			easing: 'sqrt',
+
+			//How long the animation should take in ms.
+			duration: function(currentTop, targetTop) {
+				//By default, the duration is hardcoded at 500ms.
+				return 500;
+
+
+			},
+
+
+		});
+		}
+		</script>
+
+
+    </body>
+</html>
