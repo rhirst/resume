@@ -482,7 +482,7 @@ function Background () {
 	
 //****************KeyEvents*********************************
 function handleKeyDown(event) {
-	event.preventDefault();
+	//event.preventDefault();
 	if(event.keyCode == 37) left_key = true;
 	else if(event.keyCode == 39) right_key = true;
 	

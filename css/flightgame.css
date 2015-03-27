@@ -1,5 +1,10 @@
 body {
 	position:fixed;
+	font-family: Arial, Helvetica, sans-serif;
 
+}
 
+#scoreboard{
+	float: right;
+	padding-left: 5em;
 }
