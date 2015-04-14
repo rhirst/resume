@@ -410,6 +410,7 @@ function enemy (type, power) {
 					}
 				
 			}
+			
 
 		}
 		else {

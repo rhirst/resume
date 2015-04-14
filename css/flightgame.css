@@ -12,7 +12,7 @@ canvas {
 	padding-left: 2em;
 }
 
-#scoreboard{
+.scoreboard{
 	display: inline-block;
 	vertical-align: top;
 	padding-left: 2em;
