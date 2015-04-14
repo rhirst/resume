@@ -486,6 +486,7 @@ function onLoad() {
 	context = canvas.getContext("2d");
 	Canvas_width = canvas.width;
 	Canvas_height = canvas.height;
+	context.canvas.height = window.innerHeight;
 	ship_level = 0;
 
 	
@@ -527,10 +528,18 @@ function handleKeyDown(event) {
 	if(event.keyCode == 37) left_key = true;
 	else if(event.keyCode == 39) right_key = true;
 	
-	if(event.keyCode == 38) up_key = true;
-	else if (event.keyCode == 40) down_key = true;
-	
-	if(event.keyCode == 32) space = true;
+	if(event.keyCode == 38){
+		event.preventDefault();
+		up_key = true;
+	}
+	else if (event.keyCode == 40){ 
+		down_key = true;
+		event.preventDefault();
+	}
+	if(event.keyCode == 32){
+		event.preventDefault();
+		space = true;
+	}
 
 	if(event.keyCode == 82) init();
 }
