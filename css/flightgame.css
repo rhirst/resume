@@ -1,10 +1,23 @@
 body {
-	position:fixed;
+	border-top: none;
+	margin-top: 3em;
+	
 	font-family: Arial, Helvetica, sans-serif;
+	
+}
 
+canvas {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 2em;
 }
 
 #scoreboard{
-	float: right;
-	padding-left: 5em;
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 2em;
+	width: 200px;
+	padding-top: 0px;
+	margin-top: 0px;
+
 }

@@ -20,6 +20,7 @@ var bullet_array = [];
 var enemy_array = [];
 var enemy_bullets = [];
 var explosion_array = [];
+var star_array = [];
 
 var points = 0;
 var timer = 0;
@@ -59,20 +60,41 @@ function ship() {
 	var obj = {}; 
 	obj.image = new Image();
 	console.log("ship: " + ship_level);
-	obj.image.src = "../img/FlightGame/shuttle.png";
-	if (ship_level == 0) obj.image.src = "../img/FlightGame/shuttle.png";
-	else if (ship_level == 1) obj.image.src = "../img/FlightGame/shuttle.png";
-	else if (ship_level == 2) obj.image.src = "../img/FlightGame/shuttle.png";
-	obj.x = 150;
-	obj.y = 450;
+	obj.image.src = "../img/FlightGame/shuttlesprites.png";
+	if (ship_level == 0) obj.image.src = "../img/FlightGame/shuttlesprites.png";
+	else if (ship_level == 1) obj.image.src = "../img/FlightGame/shuttlesprites.png";
+	else if (ship_level == 2) obj.image.src = "../img/FlightGame/shuttlesprites.png";
+	obj.x = Canvas_width/2;
+	obj.y = Canvas_height*(3/4);
 	obj.vy = 0;
 	obj.xy = 0;
 	obj.w = 52;
 	obj.h = 52;
+	obj.index = 4;
+	obj.fw = 260;
+	obj.frames = 5;
 	obj.bombcount = 5;
 	obj.color = "000000";
+	obj.tick = 0;
+	obj.tpf = 1;
 	
 	obj.update = function() {
+		if (obj.index<8 && right_key){
+			obj.index+=.5;
+		}
+		else if (obj.index>0 && left_key){
+			obj.index-=.5;
+		}
+
+		if (!right_key && !left_key){
+			if (obj.index>4){
+				obj.index -=.5;
+			}
+			if (obj.index<4){
+				obj.index +=.5;
+			}
+		}
+
 		if (right_key && obj.x < (Canvas_width - obj.w)) obj.x += 7;
 		else if (left_key && obj.x > 0) obj.x -=7;
 		if (up_key && obj.y >0) obj.y -=7;
@@ -100,7 +122,18 @@ function ship() {
 	
 	obj.draw = function() {
 		//console.log("ship draw");
-		context.drawImage(obj.image, obj.x, obj.y);
+		//context.drawImage(obj.image, obj.x, obj.y);
+		obj.draw = function () {
+			context.drawImage(	obj.image, 
+								(Math.floor(obj.index/2) * (obj.fw/obj.frames)), 
+								0, 
+								(obj.fw/obj.frames), 
+								obj.h, 
+								obj.x, 
+								obj.y, 
+								(obj.fw/obj.frames), 
+								obj.h);
+		}
 	};
 	return obj;
 	}
@@ -111,7 +144,7 @@ function bullet () {
 	//console.log("bullet");
 	var obj = {}; 
 	obj.image = new Image();
-	obj.image.src = "../img/FlightGame/laser.png";
+	obj.image.src = "../img/FlightGame/laserblue.png";
 	obj.x = player.x + 15;
 	obj.y = player.y;
 	obj.vy = 10;
@@ -147,7 +180,7 @@ function bullet () {
 function enemy_bullet(x_cord, y_cord) {
 	var obj = {}; 
 	obj.image = new Image();
-	obj.image.src = "../img/FlightGame/laser.png";
+	obj.image.src = "../img/FlightGame/laserred.png";
 	obj.x = x_cord;
 	obj.y = y_cord;
 	obj.vy = 10;
@@ -287,14 +320,16 @@ function enemy (type, power) {
 	//***************CanvasFunctions***************************
 	
 	function draw() {
-		if (LoseCondition){
-			// Clear the screen.
-			clearCanvas();
-			background.draw();
+		clearCanvas();
+		background.draw();
+		for (var i = 0; i < star_array.length; i++) {
+			star_array[i].draw();
+		}
+		if (LoseCondition){			
 			var lose = {};
 			lose.image = new Image();
-			lose.image.src = "../img/FlightGame/Controls.png";
-			context.drawImage(lose.image, 0, 0);
+			lose.image.src = "../img/FlightGame/Controls.png";    // font in image is 'i_fink_u_freeky' by author Frédéric Rich
+			
 			
 			for (var i = 0; i < enemy_array.length; i++) {
 				
@@ -303,12 +338,9 @@ function enemy (type, power) {
 			for (var i = 0; i < explosion_array.length; i++) {
 				explosion_array[i].draw();
 			}
-
+			context.drawImage(lose.image, 0, 0);
 		}
 		else{
-			// Clear the screen.
-			clearCanvas();
-			background.draw();
 			// Draw my player
 			context.fillStyle = player.color;
 			//context.drawImage( player.image, player.x, player.y );
@@ -335,7 +367,9 @@ function enemy (type, power) {
 				explosion_array[i].draw();
 			}
 		}
+		
 	}
+
 	function clearCanvas() {
 	// Store the current transformation matrix
 	context.save();
@@ -416,6 +450,9 @@ function enemy (type, power) {
 			
 			
 		}
+		for (var i = 0; i < star_array.length; i++) {
+			star_array[i].update();
+		}
 	}
 	
 	
@@ -461,6 +498,7 @@ function onLoad() {
 
 	timer = setInterval(gameLoop, 30);
 	makeships();
+	makestars();
 	
 	return timer;
 }
@@ -468,12 +506,14 @@ function onLoad() {
 function Background () {
 	var obj ={};
 	obj.draw = function() {
+		/*
 		var gradient=context.createLinearGradient(0,0,0,Canvas_height);
 		gradient.addColorStop(0.0, "#000000");
 		gradient.addColorStop(0.4, "#8904B1");
 		gradient.addColorStop(0.81, "#000000");
 		gradient.addColorStop(1.0, "#8A2908");
-		context.fillStyle = gradient;
+		*/
+		context.fillStyle = "#000000";
 		context.fillRect(0, 0, Canvas_width, Canvas_height);
 
 	};
@@ -573,3 +613,33 @@ function explosion(xcord, ycord){
 	}
 	return obj;
 	};
+
+function star(){
+	var obj = {};
+	obj.x = Math.random()*Canvas_width;
+	obj.y = Math.random()*Canvas_height;
+	obj.vy = Math.random()*2+5;
+	obj.update = function(){
+		obj.y += obj.vy;
+		if (obj.y > Canvas_height){
+			obj.x = Math.random()*Canvas_width;
+			obj.y = 0;
+			obj.vy = Math.random()*2+5;
+		}
+	}
+	obj.draw = function (){
+		context.fillStyle = "#FFFFFF";
+		context.fillRect(obj.x, obj.y, 1, 1);
+	}
+	return obj;
+};
+
+function makestars(){
+	for (i = 0; i < 100; i++){
+			this_star = new star();
+			star_array.push(this_star);
+		}
+}
+
+
+
