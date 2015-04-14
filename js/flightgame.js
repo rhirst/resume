@@ -410,7 +410,7 @@ function enemy (type, power) {
 					}
 				
 			}
-			
+
 
 		}
 		else {
@@ -557,12 +557,14 @@ function $(id) {
 
 function Update_points(points_val){
 	points += points_val;
-	var pointsElement = $('points');
+	console.log(points_val);
+	var pointsElement = $("points");
+	console.log(points);
 	pointsElement.innerHTML = points;
 	}
 	
 function Update_level(game_level){
-	var levelElement = $('level');
+	var levelElement = $("level");
 	levelElement.innerHTML = game_level;
 	}
 
