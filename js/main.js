@@ -1,3 +1,5 @@
+var messageDelay = 2000;  // How long to display status messages (in milliseconds)
+
 // Init the form once the document is ready
 $( init );
  
@@ -102,4 +104,3 @@ function submitFinished( response ) {
     $('#contactForm').delay(messageDelay+500).fadeIn();
   }
 }
- 

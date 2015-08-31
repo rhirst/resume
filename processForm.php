@@ -3,7 +3,7 @@
 // Define some constants
 define( "RECIPIENT_NAME", "Ryan Hirst" );
 define( "RECIPIENT_EMAIL", "r.hirst18@gmail.com" );
-define( "EMAIL_SUBJECT", "Visitor Message" );
+define( "EMAIL_SUBJECT", "RyanHirst.com message" );
  
 // Read the form values
 $success = false;
