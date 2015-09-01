@@ -1,5 +1,4 @@
 <?php
-require_once('phar:///var/www/path-to/PhpConsole.phar');
 ini_set('display_errors', 'On');
 // Define some constants
 define( "RECIPIENT_NAME", "Ryan Hirst" );
