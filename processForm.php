@@ -1,5 +1,5 @@
 <?php
- 
+ ini_set('display_errors', 'On');
 // Define some constants
 define( "RECIPIENT_NAME", "Ryan Hirst" );
 define( "RECIPIENT_EMAIL", "r.hirst18@gmail.com" );
@@ -7,9 +7,9 @@ define( "EMAIL_SUBJECT", "RyanHirst.com message" );
  
 // Read the form values
 $success = false;
-$senderName = isset( $_POST['senderName'] ) ? preg_replace( "/[^\.\-\' a-zA-Z0-9]/", "", $_POST['senderName'] ) : "";
-$senderEmail = isset( $_POST['senderEmail'] ) ? preg_replace( "/[^\.\-\_\@a-zA-Z0-9]/", "", $_POST['senderEmail'] ) : "";
-$message = isset( $_POST['message'] ) ? preg_replace( "/(From:|To:|BCC:|CC:|Subject:|Content-Type:)/", "", $_POST['message'] ) : "";
+$senderName = isset( $_GET['senderName'] ) ? preg_replace( "/[^\.\-\' a-zA-Z0-9]/", "", $_GET['senderName'] ) : "";
+$senderEmail = isset( $_GET['senderEmail'] ) ? preg_replace( "/[^\.\-\_\@a-zA-Z0-9]/", "", $_GET['senderEmail'] ) : "";
+$message = isset( $_GET['message'] ) ? preg_replace( "/(From:|To:|BCC:|CC:|Subject:|Content-Type:)/", "", $_GET['message'] ) : "";
  
 // If all values exist, send the email
 if ( $senderName && $senderEmail && $message ) {
