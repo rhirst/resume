@@ -48,6 +48,8 @@ function init() {
     enemy_array= [];
     enemy_bullets= [];
     explosion_array= [];
+    capsul_array= [];
+    powerup_array= [];
     LoseCondition = false;
     makeships();
     Update_points(points);
@@ -70,7 +72,7 @@ function ship() {
     obj.xy = 0;
     obj.w = 52;
     obj.h = 52;
-    obj.level = 1;
+    obj.level = 2;
     obj.index = 4;
     obj.fw = 260;
     obj.frames = 5;
@@ -116,17 +118,20 @@ function ship() {
                 }
             }
         }
-        for (var i = 0; i < powerup_array.length; i++) {
+        for (var i = 0; i < (powerup_array.length); i++) {
             //powerup check
+            console.log("power-check");
             
             if ((powerup_array[i].x > (obj.x)) && (powerup_array[i].x < (obj.x+obj.w))){
                 
                 if ((powerup_array[i].y < (obj.y+obj.h))&&(powerup_array[i].y > (obj.y)) && powerup_array[i].os){ 
         
-                obj.level += 1;
-                powerup_array[i].os = false;
-                console.log("power up!");
-                console.log(obj.level);
+                    powerup_array[i].os = false;
+                    console.log("power up!");
+                    console.log(obj.level);
+                    console.trace();
+                    console.log(powerup_array[i]);
+                    obj.level += 1;
                 }
             }
         }
@@ -376,9 +381,9 @@ function powerup (x, y) {
     obj.h = 25;
     obj.w = 25;
     obj.os = true;  
-    obj.update = function() {  
-        obj.bounds();     
-        obj.y += obj.vy;           
+    obj.update = function() {       
+        obj.y += obj.vy;
+        obj.bounds();           
     }
     obj.bounds = function() {
         if (obj.y > canvas.height) obj.os = false;
@@ -542,7 +547,6 @@ function powerup (x, y) {
 
         }
         else {
-            player.update()
             timer ++;
             for (var i=0; i < bullet_array.length; i++) {
                 bullet_array[i].update();
@@ -558,11 +562,13 @@ function powerup (x, y) {
                     }
             }
             for (var i=0; i < powerup_array.length; i++) {
-                powerup_array[i].update();
                 if (!powerup_array[i].os){
                     
                     powerup_array.splice(i,1);
-                    }
+                }
+                else {
+                    powerup_array[i].update();
+                }
             }
             for (var i = 0; i < enemy_array.length; i++) {
                 enemy_array[i].update();
@@ -597,7 +603,7 @@ function powerup (x, y) {
                     }
                 
             }
-            
+            player.update();
             
         }
         for (var i = 0; i < star_array.length; i++) {
@@ -728,12 +734,12 @@ function Update_level(game_level){
 
 function shoot (playerlevel) {
     
-    if (playerlevel == 1){
+    if (playerlevel == 2){
         laser2 = new bullet();
         laser2.x += 10;
         bullet_array.push(laser2);
         }
-    else if (playerlevel == 2){
+    else if (playerlevel == 4){
         laserdual_1 = new bullet();
         laserdual_2 = new bullet();
         laserdual_1.x += 0;
@@ -741,8 +747,19 @@ function shoot (playerlevel) {
         bullet_array.push(laserdual_1);
         bullet_array.push(laserdual_2);
         }
+    else if (playerlevel >= 6){
+        lasertrio_1 = new bullet();
+        lasertrio_2 = new bullet();
+        lasertrio_3 = new bullet();
+        lasertrio_1.x += 0;
+        lasertrio_2.x += 10;
+        lasertrio_3.x += 20;
+        bullet_array.push(lasertrio_1);
+        bullet_array.push(lasertrio_2);
+        bullet_array.push(lasertrio_3);
         
     }
+}
     
 //***************Effects***************************************
 function explosion(xcord, ycord){
