@@ -114,7 +114,12 @@ function ship() {
                 //obj.os = false;
                 var me_boom = new explosion(obj.x, obj.y);
                 explosion_array.push(me_boom);
-                LoseCondition = true;
+                console.log(obj.level);
+                obj.level -= 1;
+                console.log(obj.level);
+                if (obj.level <= 0) {
+                    LoseCondition = true;
+                }
                 }
             }
         }
