@@ -9,6 +9,7 @@
 
         <!-- Bootstrap -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/custom.css">
         <link href="../css/dwarves.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -19,30 +20,49 @@
           <![endif]-->
     </head>
     <body bgcolor="#FFFFFF" onLoad="onLoad();">
-        <div id="main" class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="canvas-container text-left">
-                        <canvas id="theCanvas" width="760" height="460"></canvas>
+        <div class="game-wrap">
+            <nav id="nav" class="navbar navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="../index.html">Ryan Hirst</a>
                     </div>
-                    <div class="score-board well">
-                        <div id = 'points'>
-                            <p>0</p>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <!--ul class="nav navbar-nav">
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul-->
+                    </div>
+                </div>
+            </nav>
+            <div id="main" class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="canvas-container text-left">
+                            <canvas id="theCanvas" width="760" height="460"></canvas>
                         </div>
-                        <div id = 'level'>
-                            <p>1</p>
-                        </div>
-                        <div class="instructions">
-                            <p>&#8592;, &#8594; : move</p>
-                            <p>&#8593; : jump
+                        <div class="score-board well">
+                            <div id = 'points'>
+                                <p>0</p>
+                            </div>
+                            <div id = 'level'>
+                                <p>1</p>
+                            </div>
+                            <div class="instructions">
+                                <p>&#8592;, &#8594; : move</p>
+                                <p>&#8593; : jump
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer text-center">
-            <a href="http://ryanhirst.com/" alt="ryanhirst.com">RyanHirst.com</a>
-        </div>
+        <script src="../js/bootstrap.min.js"></script>
     	<script src="../js/dwarf.js"></script>
     </body>
 </html>
