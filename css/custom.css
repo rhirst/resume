@@ -132,6 +132,7 @@ nav .container {
 
 .gallery-item img {
   max-width:128px;
+  width:100%;
 }
 
 .bar-light {
