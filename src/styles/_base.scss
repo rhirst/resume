@@ -1,0 +1,36 @@
+body {
+  background-color: $white;
+  color: $grey-dark;
+  font-weight: 400;
+  transition: all .25s ease;
+}
+a {
+  color: $blue;
+  font-weight: 600;
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+    color: $green;
+  }
+
+  &.button {
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: .25em 0;
+}
+h1 {
+  color: $black;
+}
+h2 {
+  color: lighten($grey-dark, 20%);
+}
+p {
+  line-height: 1.5em;
+}
+
+.inner {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 0 1em;
+}

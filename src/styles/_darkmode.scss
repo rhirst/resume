@@ -1,0 +1,36 @@
+body.dark-mode {
+  background-color: $black-blue;
+  color: $white;
+
+  a {
+    color: $pink;
+    &:hover {
+      color: $pistachio;
+    }
+  }
+  h1 {
+    color: $white;
+  }
+  h2 {
+    color: $purple;
+  }
+  .profile {
+
+    .face {
+      background-image: url('../images/profile_dark.jpg');
+    }
+  }
+  @media all and (min-width: 768px) {
+    .profile {
+      background-color: darken($grey-light, 65%);
+
+      .face {
+        transform: translateX(-350px);
+      }
+      .name {
+        transform: translateX(270px);
+        text-align: left;
+      }
+    }
+  }
+}

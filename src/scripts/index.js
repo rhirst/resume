@@ -1,7 +1,17 @@
 import list from './modules/list'
 
-console.log(`Hello ${list[0]}`)
+var dark_toggle = '';
 
 var profile = document.getElementById('profile');
-profile.addEventListener("click", function(){ 
-    document.getElementById('top').classList.add("dark-mode");});
+var link_toggle = document.getElementById('dark-toggle');
+profile.addEventListener("click", function(){
+    document.getElementById('top').classList.toggle("dark-mode");});
+link_toggle.addEventListener("click", function(){
+    document.getElementById('top').classList.toggle("dark-mode");
+    if (this.innerHTML == 'dark mode'){
+      this.innerHTML = 'light mode';
+    }
+    else {
+      this.innerHTML = 'dark mode';
+    }
+  });
