@@ -8,12 +8,25 @@ a {
   color: $blue;
   font-weight: 600;
   text-decoration: underline;
+  transition: all .25s ease;
+
   &:hover {
     cursor: pointer;
     color: $green;
   }
 
   &.button {
+    border: 1px solid $blue;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 2px;
+    padding: 2px 4px;
+    text-decoration: none;
+
+    &:hover {
+      border-color: $green;
+      box-shadow: 2px 2px 3px $grey;
+    }
   }
 }
 h1, h2, h3, h4, h5, h6 {
@@ -22,15 +35,37 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   color: $black;
 }
-h2 {
+h2, h3 {
   color: lighten($grey-dark, 20%);
+
 }
 p {
   line-height: 1.5em;
 }
-
+section {
+  margin-bottom: 2em;
+}
+ul {
+  padding-inline-start: 0;
+  & > li {
+    display: inline-block;
+    list-style: none;
+  }
+}
+.description {
+  margin-bottom: 3em;
+}
+.footer {
+  padding: 2em 0;
+}
 .inner {
   max-width: 660px;
   margin: 0 auto;
   padding: 0 1em;
+}
+
+@media all and (max-width: 768px) {
+  h2 {
+    font-size: 1.25em;
+  }
 }

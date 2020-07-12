@@ -7,12 +7,20 @@ body.dark-mode {
     &:hover {
       color: $pistachio;
     }
+    &.button {
+      border-color: $pink;
+
+      &:hover {
+        border-color: $pistachio;
+        box-shadow: 2px 2px 5px lighten($black-blue, 20%);
+      }
+    }
   }
   h1 {
     color: $white;
   }
-  h2 {
-    color: $purple;
+  h2, h3 {
+    color: $pistachio;
   }
   .profile {
 
