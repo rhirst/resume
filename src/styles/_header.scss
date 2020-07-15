@@ -3,13 +3,10 @@
   margin-bottom: 2em;
   margin-top: 2em;
 
-  &:hover {
-    cursor: pointer;
-  }
   .face {
     background-image: url('../images/profile.jpg');
     background-size: contain;
-    border: 2px solid $grey-light;
+    border: 2px solid $blue;
     display: inline-block;
     width: 150px;
     height: 150px;
@@ -17,6 +14,11 @@
     transform: translateX(0);
     transition: all .25s ease;
     vertical-align: middle;
+
+    &:hover {
+      border-color: $green;
+      cursor: pointer;
+    }
   }
   .name {
     display: inline-block;
@@ -27,29 +29,21 @@
   @media all and (min-width: 768px) {
     & {
       align-items: center;
-      background-color: $grey-light;
-      border: 4px solid $grey;
-      border-radius: 262px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       pointer-events: inherit;
-      height: 280px;
-      overflow: hidden;
       transition: all .25s ease;
 
       .name {
-        margin: 2em;
+        margin: 2em 0;
         max-width: 240px;
-        text-align: right;
-        transform: translateX(30px);
+        transform: translateX(0px);
       }
       .face {
-        box-sizing: content-box;
-        border: 4px solid $grey;
         height: 272px;
         width: 272px;
-        transform: translateX(4px);
+        transform: translateX(0px);
       }
     }
   }

@@ -26,17 +26,21 @@ body.dark-mode {
 
     .face {
       background-image: url('../images/profile_dark.jpg');
+      border-color: $pink;
+
+      &:hover {
+        border-color: $pistachio;
+      }
     }
   }
   @media all and (min-width: 768px) {
     .profile {
-      background-color: darken($grey-light, 65%);
 
       .face {
         transform: translateX(-350px);
       }
       .name {
-        transform: translateX(270px);
+        transform: translateX(310px);
         text-align: left;
       }
     }
