@@ -16,10 +16,14 @@ body.dark-mode {
       background-size: 4px 50px;
     }
     &.button {
-      border-color: $purple;
-
+      background: transparent;
+      border-color: $pistachio;
+      color: $pistachio;
+  
       &:hover {
-        box-shadow: 2px 2px 5px lighten($black-blue, 20%);
+        border-color: $purple;
+        box-shadow: 2px 2px 3px $grey;
+        color: $purple;
       }
     }
   }

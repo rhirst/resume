@@ -1,3 +1,10 @@
 {
-  "name": "Ryan Hirst"
+  "name": "Ryan Hirst",
+  "footerLinks": {
+    "Github": "https://github.com/rhirst",
+    "LinkedIn": "https://www.linkedin.com/in/ryan-hirst-a69a33b6/",
+    "CodePen": "https://codepen.io/rhirst",
+    "Drupal": "https://www.drupal.org/u/rhirst",
+    "r.hirst18@gmail.com": "mailto:r.hirst18@gmail.com"
+  }
 }

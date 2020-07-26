@@ -19,11 +19,9 @@
   <div class="footer">
     <div class="inner">
       <ul>
-        <li><a class="button" href="https://github.com/rhirst" alt="My Github account">github</a></li>
-        <li><a class="button" href="https://www.linkedin.com/in/ryan-hirst-a69a33b6/" alt="My LinkedIn account">LinkedIn</a></li>
-        <li><a class="button" href="https://codepen.io/rhirst"  alt="My CodePen account">codepen</a></li>
-        <li><a class="button" href="https://www.drupal.org/u/rhirst" alt="My Drupal account">drupal</a></li>
-        <li><a class="button" href="mailto:r.hirst18@gmail.com" alt="My email address">r.hirst18@gmail.com</a></li>
+        {% for text, link in siteData.footerLinks %}
+          <li><a class="button" target="_blank" href="{{ link }}">{{ text }}</a></li>
+        {% endfor %}
       </ul>
     </div>
   </div>

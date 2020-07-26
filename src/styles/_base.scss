@@ -22,15 +22,19 @@ a {
   }
 
   &.button {
-    border: 1px solid $blue-light;
+    background: transparent;
+    border: 1px solid $blue;
     border-radius: 3px;
+    color: $blue;
     display: inline-block;
     margin: 8px;
     padding: 2px 4px;
     text-decoration: none;
 
     &:hover {
+      border-color: $blue-light;
       box-shadow: 2px 2px 3px $grey;
+      color: $blue-light;
     }
   }
 }
