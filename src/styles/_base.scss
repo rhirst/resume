@@ -5,18 +5,24 @@ body {
   transition: all .25s ease;
 }
 a {
-  color: $blue;
-  font-weight: 600;
-  text-decoration: underline;
-  transition: all .25s ease;
+  background:linear-gradient(
+    to bottom, $blue-light 0%,
+    $blue-light 100%
+  );
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 4px 4px;
+  color: $grey-dark;
+  text-decoration: none;
+  transition: background-size .2s;
 
   &:hover {
     cursor: pointer;
-    color: $green;
+    background-size: 4px 50px;
   }
 
   &.button {
-    border: 1px solid $blue;
+    border: 1px solid $blue-light;
     border-radius: 3px;
     display: inline-block;
     margin: 8px;
@@ -24,7 +30,6 @@ a {
     text-decoration: none;
 
     &:hover {
-      border-color: $green;
       box-shadow: 2px 2px 3px $grey;
     }
   }
@@ -44,6 +49,8 @@ p {
 }
 section {
   margin-bottom: 2em;
+  padding: 1em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 ul {
   padding-inline-start: 0;
@@ -51,9 +58,6 @@ ul {
     display: inline-block;
     list-style: none;
   }
-}
-.description {
-  margin-bottom: 3em;
 }
 .footer {
   padding: 2em 0;

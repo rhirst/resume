@@ -3,15 +3,22 @@ body.dark-mode {
   color: $white;
 
   a {
-    color: $pink;
+    color: $white;
+    background:linear-gradient(
+      to bottom, $purple 0%,
+      $purple 100%
+    );
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 4px 4px;
+
     &:hover {
-      color: $pistachio;
+      background-size: 4px 50px;
     }
     &.button {
-      border-color: $pink;
+      border-color: $purple;
 
       &:hover {
-        border-color: $pistachio;
         box-shadow: 2px 2px 5px lighten($black-blue, 20%);
       }
     }
@@ -20,13 +27,19 @@ body.dark-mode {
     color: $white;
   }
   h2, h3 {
-    color: $pistachio;
+    color: $pink;
+  }
+
+  section {
+    background-color: lighten($black-blue, 7%);
+    border-radius: 5px;
+    padding: 1em;
   }
   .profile {
 
     .face {
       background-image: url('../images/profile_dark.jpg');
-      border-color: $pink;
+      border-color: transparent;
 
       &:hover {
         border-color: $pistachio;
@@ -36,11 +49,15 @@ body.dark-mode {
   @media all and (min-width: 768px) {
     .profile {
 
-      .face {
-        transform: translateX(-350px);
+      .face-wrapper {
+        border-color: $white;
+
+        &::after,
+        &::before {
+          background-color: $white;
+        }
       }
       .name {
-        transform: translateX(310px);
         text-align: left;
       }
     }

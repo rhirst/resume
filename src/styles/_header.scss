@@ -1,23 +1,62 @@
 .profile {
   pointer-events: none;
   margin-bottom: 2em;
-  margin-top: 2em;
+  margin-top: 3em;
 
-  .face {
-    background-image: url('../images/profile.jpg');
-    background-size: contain;
-    border: 2px solid $blue;
-    display: inline-block;
-    width: 150px;
-    height: 150px;
+  .face-wrapper {
+    border: 1px solid $black-blue;
     border-radius: 50%;
-    transform: translateX(0);
-    transition: all .25s ease;
+    display: inline-block;
+    position: relative;
+    transition: all .25s ease-in-out;
     vertical-align: middle;
 
+    &::after {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-color: $black-blue;
+      border-radius: 50%;
+      position: absolute;
+      transform: translate(160px, -40px);
+      transition: all .25s ease-in-out;
+      z-index: -1;
+    }
+    &::before {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 100px;
+      background-color: $black-blue;
+      border-radius: 50%;
+      position: absolute;
+      transform: translate(-10px, -10px);
+      transition: all .25s ease-in-out;
+      z-index: -1;
+    }
     &:hover {
-      border-color: $green;
       cursor: pointer;
+      padding: 30px;
+      margin: -30px;
+      &::after {
+        height: 30px;
+        width: 30px;
+        transform: translate(175px, -20px);
+      }
+      &::before {
+        width: 130px;
+        height: 130px;
+        transform: translate( -50px, -50px);
+      }
+    }
+    .face {
+      background-image: url('../images/profile.jpg');
+      background-size: contain;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      z-index: 5;
     }
   }
   .name {
@@ -37,13 +76,15 @@
 
       .name {
         margin: 2em 0;
-        max-width: 270px;
+        max-width: 340px;
         transform: translateX(0px);
       }
-      .face {
-        height: 272px;
-        width: 272px;
+      .face-wrapper {
         transform: translateX(0px);
+        .face {
+          height: 200px;
+          width: 200px;
+        }
       }
     }
   }
