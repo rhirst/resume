@@ -19,7 +19,7 @@
       background-color: $black-blue;
       border-radius: 50%;
       position: absolute;
-      transform: translate(160px, -40px);
+      transform: translate(125px, -40px);
       transition: all .25s ease-in-out;
       z-index: -1;
     }
@@ -61,8 +61,9 @@
   }
   .name {
     display: inline-block;
-    max-width: calc(95% - 155px);
+    max-width: calc(95% - 160px);
     margin-right: 5%;
+    padding-left: 30px;
     vertical-align: middle;
   }
   @media all and (min-width: 768px) {
@@ -77,10 +78,16 @@
       .name {
         margin: 2em 0;
         max-width: 340px;
+        padding-left: 0;
         transform: translateX(0px);
       }
       .face-wrapper {
         transform: translateX(0px);
+
+        &:after {
+          transform: translate(160px, -40px);
+        }
+
         .face {
           height: 200px;
           width: 200px;
