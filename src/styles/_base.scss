@@ -22,7 +22,7 @@ a {
   }
 
   &.button {
-    background: transparent;
+    background-size: 0px 4px;
     border: 1px solid $blue;
     border-radius: 3px;
     color: $blue;
@@ -32,9 +32,8 @@ a {
     text-decoration: none;
 
     &:hover {
-      border-color: $blue-light;
-      box-shadow: 2px 2px 3px $grey;
-      color: $blue-light;
+      background-size: 4px 50px;
+      color: $white;
     }
   }
 }
